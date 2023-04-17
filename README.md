@@ -1,6 +1,6 @@
 # JProxy
 
-JProxy is a simple proxy server that enables you to run a SOCKS5 proxy on a Windows Jump Host. It can run as a Windows Service in the background, even when no one is logged into the system.
+JProxy is a simple proxy server that enables you to run a SOCKS5 proxy on a Jump Host. It can run as a Windows Service in the background, even when no one is logged into the system.
 
 ## Table of Contents
 
@@ -41,9 +41,8 @@ JProxy is a simple proxy server that enables you to run a SOCKS5 proxy on a Wind
     ```makefile
     C:\Program Files\Common Files\Services\jproxy.exe
     ```
-5. Follow the instructions in the video tutorial "How to Install JProxy on Windows Jump Host" for setting up the JProxy service on your Windows system:
-How to Install JProxy on Windows Jump Host
-
+5. Follow the instructions in the video tutorial "[JProxy Installation Guide for Windows Jump Hosts](https://www.youtube.com/watch?v=cjs_e5pVAwU)" for setting up the JProxy service on your Windows system:
+  
     [![Video Thumbnail](https://img.youtube.com/vi/cjs_e5pVAwU/maxresdefault.jpg)](https://www.youtube.com/watch?v=cjs_e5pVAwU)
 
     For reference, the commands used in the video for CMD are:
