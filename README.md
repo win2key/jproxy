@@ -31,7 +31,7 @@ JProxy is a simple proxy server that enables you to run a SOCKS5 proxy on a Jump
     ```
 2. Navigate to the JProxy directory:
     ```bash
-    cd JProxy
+    cd jproxy/bin
     ```
 3. Compile the JProxy project for the Windows platform:
     ```go
@@ -49,6 +49,7 @@ JProxy is a simple proxy server that enables you to run a SOCKS5 proxy on a Jump
     ```makefile
     sc create "JProxy" binPath= "C:\Program Files\Common Files\Services\jproxy.exe" 
     DisplayName= "JProxy Service" start= auto
+    
     sc start JProxy
     ```
 
