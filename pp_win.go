@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package main
+package jproxy
 
 import (
 	"log"
@@ -10,27 +10,29 @@ import (
 	"golang.org/x/sys/windows/svc"
 )
 
-func main() {
+func RunWindowsProxy(address string) {
 	isInteractive, err := svc.IsAnInteractiveSession()
 	if err != nil {
 		log.Fatalf("Failed to determine if session is interactive: %v", err)
 	}
 	if !isInteractive {
-		runService()
+		runService(address)
 		return
 	} else {
-		runProxy("0.0.0.0:20202")
+		RunProxy(address)
 	}
 }
 
-type myService struct{}
+type myService struct {
+	address string
+}
 
 func (m *myService) Execute(args []string, r <-chan svc.ChangeRequest, changes chan<- svc.Status) (ssec bool, errno uint32) {
 	const cmdsAccepted = svc.AcceptStop | svc.AcceptShutdown
 
 	changes <- svc.Status{State: svc.StartPending}
 
-	go runProxy("0.0.0.0:20202")
+	go RunProxy(m.address)
 
 	changes <- svc.Status{State: svc.Running, Accepts: cmdsAccepted}
 
@@ -51,10 +53,10 @@ func (m *myService) Execute(args []string, r <-chan svc.ChangeRequest, changes c
 	}
 }
 
-func runService() {
+func runService(address string) {
 	const serviceName = "JProxy Service"
 
-	err := svc.Run(serviceName, &myService{})
+	err := svc.Run(serviceName, &myService{address: address})
 	if err != nil {
 		log.Fatalf("Service failed: %v", err)
 	}

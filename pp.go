@@ -1,8 +1,8 @@
 //go:build !windows
 // +build !windows
 
-package main
+package jproxy
 
-func main() {
-	runProxy("0.0.0.0:20202")
+func RunWindowsProxy(address string) {
+	RunProxy(address)
 }

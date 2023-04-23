@@ -1,4 +1,4 @@
-package main
+package jproxy
 
 import (
 	"io"
@@ -8,7 +8,7 @@ import (
 	"golang.org/x/net/proxy"
 )
 
-func runProxy(address string) {
+func RunProxy(address string) {
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
 		log.Fatal("Failed to create listener:", err)
