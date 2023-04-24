@@ -49,13 +49,14 @@ JProxy is a simple proxy server that enables you to run a SOCKS5 proxy on a Jump
     ```makefile
     sc create "JProxy" binPath= "C:\Program Files\Common Files\Services\jproxy.exe" 
     DisplayName= "JProxy Service" start= auto
-    
+    ```
+    ```makefile
     sc start JProxy
     ```
 
 ## Usage
 
-Once the JProxy service is installed and started, it will run automatically in the background, listening on the specified address (default: `0.0.0.0:20202`). You can now use your Windows Jump Host as a SOCKS5 proxy.
+Once the `JProxy` service is installed and started, it will run automatically in the background, listening on the specified address (default: `0.0.0.0:20202`). You can now use your Windows Jump Host as a SOCKS5 proxy.
 
 ## Troubleshooting
 
