@@ -4,9 +4,17 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/win2key/jproxy"
 )
 
 func main() {
-	jproxy.RunProxy("0.0.0.0:20202")
+	address, err := os.LookupEnv("JPROXY") // example: JPROXY=:20202
+	if !err {
+		log.Fatal("JPROXY environment variable not set")
+		os.Exit(1)
+	}
+	jproxy.RunProxy(address)
 }
