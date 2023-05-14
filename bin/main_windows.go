@@ -10,8 +10,8 @@ import (
 func main() {
 	address, err := os.LookupEnv("JPROXY") // example: JPROXY=0.0.0.0:20202
 	if !err {
-		log.Fatal("JPROXY environment variable not set")
-		os.Exit(1)
+		log.Fatal("JPROXY environment variable not set, using default 0.0.0.0:20202")
+		address = ":20202"
 	}
 	jproxy.RunWindowsProxy(address)
 }
